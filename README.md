@@ -1,4 +1,2 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# firebase : firestore, storage, authentication, hosting in React js
+you can check the the at this link : https://fire-image-gallery-7f61c.web.app/
