@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./components/Header";
+import { Showcase } from "./components/Showcase";
+import { useState } from "react";
+import { useEffect } from "react";
+import { collection, onSnapshot, orderBy, query } from "@firebase/firestore";
+import { fireStore, useAuth } from "./firebase/firebaseConfig";
+import "./App.css";
+import { Modal } from "./components/Modal";
+import { SignUp } from "./components/SignUp";
 
 function App() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [url, setUrl] = useState(null);
+  const logged = useAuth();
+  useEffect(() => {
+    setLoading(true);
+    const q = query(
+      collection(fireStore, "images"),
+      orderBy("timestamp", "desc")
+    );
+    const unsub = onSnapshot(q, (snapshot) => {
+      setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false);
+    });
+    return unsub;
+  }, []);
+  const handleClick = (url) => {
+    setUrl(url);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+
+      {logged ? (
+        <div>
+          <Showcase Click={handleClick} data={data} loading={loading} />
+          {url && <Modal url={url} setUrl={setUrl} />}
+        </div>
+      ) : (
+        <SignUp />
+      )}
     </div>
   );
 }

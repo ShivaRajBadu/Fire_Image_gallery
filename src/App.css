@@ -1,38 +1,160 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,200;1,300&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+input[type="file"] {
+  display: none;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  background-color: rgb(36, 36, 49);
+  color: #fff;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  max-width: 95%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 5px 5px rgb(19, 19, 24);
+  padding: 0.5rem;
+}
+.title {
+  padding: 0 0.9rem;
+  font-weight: 200;
+}
+.showcase {
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+}
+.showcase-title {
+  padding: 1rem 0;
+  margin-bottom: 0.5rem;
+}
+.showcase-title h2 {
+  padding: 1rem;
+}
+.showcase-title p {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  padding-bottom: 0;
+}
+.showcase-body {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
+
+  padding: 1rem;
+}
+.showcase-grid {
+  overflow: hidden;
+  height: 0;
+  padding: 60% 0;
+  position: relative;
+}
+.grid-img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.button {
+  padding: 0.1rem 1rem;
+  background-color: rgb(2, 46, 128);
+  color: rgb(38, 207, 23);
+  font-size: 2rem;
+  border: none;
+  text-transform: capitalize;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  color: rgba(38, 207, 23, 0.623);
+  transform: translateX(20deg);
+}
+.spinner {
+  background-color: transparent;
+}
+.spinner-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  width: 30%;
+}
+.progress {
+  padding: 1rem 0;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(49, 35, 35, 0.5);
+}
+
+.modal_img {
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  margin: 2rem auto;
+  box-shadow: 0px 0px 5px 5px rgba(36, 36, 49, 0.904);
+  padding: 1rem;
+  border: 1px solid rgb(39, 39, 56);
+}
+.form_field {
+  max-width: 80%;
+  margin: 7rem auto;
+  border: 1px solid #706969;
+  padding: 4rem 0.5rem;
+}
+.form-title {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2rem;
+}
+.form_input {
+  display: block;
+  min-width: 75%;
+  margin: 1rem auto;
+  padding: 0.8rem 1rem;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+.button_group {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input_button {
+  margin-top: 0.7rem;
+  padding: 0.7rem 1.5rem;
+  margin-left: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(127, 255, 212, 0.541);
+  cursor: pointer;
+  text-transform: capitalize;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input_button:hover:enabled,
+.input_button:focus {
+  color: rgba(255, 255, 255, 0.493);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input_button:disabled {
+  background-color: rgba(127, 255, 212, 0.164);
 }
